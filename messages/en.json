@@ -1,0 +1,955 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "examples": "Examples",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "signin": "Sign In",
+    "startBuilding": "Start Building"
+  },
+  "footer": {
+    "tagline": "Turn any idea into a production-ready website in seconds.",
+    "copyright": "© 2024 HotCode AI. All rights reserved."
+  },
+  "hero": {
+    "badge": "The fastest way to build",
+    "cta1": "Get Started Free",
+    "cta2": "Watch Demo",
+    "headline1": "Build web apps",
+    "headline2": "in minutes, not months",
+    "subheadline": "Hotcode is the AI-powered platform that lets you build, deploy, and scale web applications faster than ever."
+  },
+  "features": {
+    "heading": "Powerful features for modern builders",
+    "subheading": "Everything you need to ship faster."
+  },
+  "how-it-works": [
+    {
+      "number": "01",
+      "title": "Describe your site",
+      "description": "Type a short prompt like 'a SaaS landing page for a project management tool with a dark theme and pricing section'. The more detail you give, the better the result."
+    },
+    {
+      "number": "02",
+      "title": "AI generates your site",
+      "description": "Our model instantly produces a complete multi-page website: layout, copy, components, colour palette, and responsive styles — all tailored to your prompt."
+    },
+    {
+      "number": "03",
+      "title": "Export and deploy",
+      "description": "Download production-ready code or push directly to Vercel, Netlify, or GitHub Pages with a single click. Your site is live in minutes."
+    }
+  ],
+  "examples-carousel": [
+    {
+      "title": "NovaPay",
+      "description": "A fintech SaaS landing page with dark navy theme, animated hero, and three-tier pricing section",
+      "image": "/images/novapay-fintech-saas-landing.jpg"
+    },
+    {
+      "title": "GreenLeaf Studio",
+      "description": "A botanical e-commerce storefront with warm earthy palette, product grid, and newsletter signup",
+      "image": "/images/greenleaf-botanical-ecommerce.jpg"
+    },
+    {
+      "title": "Launchpad Agency",
+      "description": "A bold digital-agency site with full-bleed hero video placeholder, case studies grid, and team section",
+      "image": "/images/launchpad-digital-agency-site.jpg"
+    },
+    {
+      "title": "PortfolioOS",
+      "description": "A minimal developer portfolio with command-palette navigation, project cards, and dark code aesthetic",
+      "image": "/images/portfolioos-developer-portfolio.jpg"
+    },
+    {
+      "title": "MealKit Co.",
+      "description": "A vibrant food-delivery landing page with recipe carousel, subscription plans, and mobile app download CTA",
+      "image": "/images/mealkit-food-delivery-landing.jpg"
+    },
+    {
+      "title": "CloudSync Docs",
+      "description": "A clean SaaS documentation hub with sidebar navigation, search bar, and versioned content layout",
+      "image": "/images/cloudsync-saas-documentation.jpg"
+    }
+  ],
+  "tutorial-video": [
+    {
+      "type": "heading",
+      "value": "Learn how to use the builder"
+    },
+    {
+      "type": "body",
+      "value": "Watch our 3-minute walkthrough to see how a complete website goes from a single sentence to a fully deployed, production-ready site — step by step."
+    },
+    {
+      "type": "cta",
+      "value": "Watch the full tutorial"
+    }
+  ],
+  "pricing-teaser": [
+    {
+      "tier": "Free",
+      "credits": "50 credits",
+      "price": "$0",
+      "priceLabel": "forever",
+      "features": [
+        "No credit card required",
+        "Live preview",
+        "Renews every month"
+      ],
+      "cta": "Get started free",
+      "isPopular": false
+    },
+    {
+      "tier": "Starter",
+      "credits": "100 credits",
+      "price": "$10",
+      "priceLabel": "one-time",
+      "features": [
+        "Full code export",
+        "Live preview",
+        "Credits never expire"
+      ],
+      "cta": "Get 100 credits",
+      "isPopular": true,
+      "badge": "Most Popular"
+    },
+    {
+      "tier": "Growth",
+      "credits": "250 credits",
+      "price": "$23",
+      "priceLabel": "one-time",
+      "features": [
+        "Full code export",
+        "Live preview",
+        "Credits never expire"
+      ],
+      "cta": "Get 250 credits",
+      "isPopular": false
+    },
+    {
+      "tier": "Pro",
+      "credits": "500 credits",
+      "price": "$42",
+      "priceLabel": "one-time",
+      "features": [
+        "Full code export",
+        "Live preview",
+        "Credits never expire"
+      ],
+      "cta": "Get 500 credits",
+      "isPopular": false
+    }
+  ],
+  "faq-teaser": [
+    {
+      "question": "What is a credit and how many do I need?",
+      "answer": "One credit equals one AI generation. A typical landing page uses 1–3 credits depending on complexity and the number of revisions you make."
+    },
+    {
+      "question": "Can I edit the code after exporting?",
+      "answer": "Absolutely. Exported code is clean, well-commented, and framework-standard — you can open it in any editor and customise it freely."
+    },
+    {
+      "question": "Do I need to know how to code?",
+      "answer": "Not at all. Builder is designed for everyone from non-technical founders to senior engineers who want to move faster."
+    },
+    {
+      "question": "What frameworks does Builder export to?",
+      "answer": "We currently support Next.js 14, plain HTML/CSS/JS, and React with Tailwind CSS. More frameworks are coming soon."
+    }
+  ],
+  "cta-banner": {
+    "heading": "Ready to build your next website?",
+    "body": "Join over 10,000 creators, founders, and developers who ship faster with Builder. Start for free — no credit card required.",
+    "cta": "Start Building Free"
+  },
+  "pricing-cards": [
+    {
+      "name": "Starter",
+      "credits": "50",
+      "price": "Free",
+      "period": "forever",
+      "badge": null,
+      "isPopular": false,
+      "features": [
+        "50 credits per month",
+        "No daily limit",
+        "AI-powered code generation",
+        "Live preview",
+        "Vercel deployment"
+      ],
+      "cta": "Get started free"
+    },
+    {
+      "name": "Builder",
+      "credits": "100",
+      "price": "$9",
+      "period": "/month",
+      "badge": null,
+      "isPopular": false,
+      "features": [
+        "100 credits per month",
+        "No daily limit",
+        "No watermark",
+        "All Starter features"
+      ],
+      "cta": "Upgrade to Builder"
+    },
+    {
+      "name": "Pro",
+      "credits": "350",
+      "price": "$29",
+      "period": "/month",
+      "badge": "Most Popular",
+      "isPopular": true,
+      "features": [
+        "350 credits per month",
+        "No daily limit",
+        "Custom domain support",
+        "Priority support",
+        "All Builder features"
+      ],
+      "cta": "Upgrade to Pro"
+    },
+    {
+      "name": "Scale",
+      "credits": "Unlimited",
+      "price": "Custom",
+      "period": "",
+      "badge": null,
+      "isPopular": false,
+      "features": [
+        "Custom credit volume",
+        "Dedicated support",
+        "SLA guarantee",
+        "API access",
+        "Custom integrations"
+      ],
+      "cta": "Contact us"
+    }
+  ],
+  "pricing-comparison": [
+    {
+      "feature": "AI Credits per month",
+      "starter": "50",
+      "builder": "100",
+      "pro": "250",
+      "scale": "Unlimited"
+    },
+    {
+      "feature": "Active projects",
+      "starter": "3",
+      "builder": "10",
+      "pro": "Unlimited",
+      "scale": "Unlimited"
+    },
+    {
+      "feature": "Export formats (HTML/CSS)",
+      "starter": "✓",
+      "builder": "✓",
+      "pro": "✓",
+      "scale": "✓"
+    },
+    {
+      "feature": "Export to React",
+      "starter": "✗",
+      "builder": "✓",
+      "pro": "✓",
+      "scale": "✓"
+    },
+    {
+      "feature": "Export to Next.js",
+      "starter": "✗",
+      "builder": "✗",
+      "pro": "✓",
+      "scale": "✓"
+    },
+    {
+      "feature": "Template library",
+      "starter": "Basic",
+      "builder": "Full",
+      "pro": "Advanced",
+      "scale": "Enterprise"
+    },
+    {
+      "feature": "Custom domain connection",
+      "starter": "✗",
+      "builder": "✓",
+      "pro": "✓",
+      "scale": "✓"
+    },
+    {
+      "feature": "SSL certificate",
+      "starter": "✗",
+      "builder": "✓",
+      "pro": "✓",
+      "scale": "✓"
+    },
+    {
+      "feature": "Team seats",
+      "starter": "1",
+      "builder": "1",
+      "pro": "3",
+      "scale": "Unlimited"
+    },
+    {
+      "feature": "White-label exports",
+      "starter": "✗",
+      "builder": "✗",
+      "pro": "✓",
+      "scale": "✓"
+    },
+    {
+      "feature": "Support level",
+      "starter": "Community",
+      "builder": "Email",
+      "pro": "Priority",
+      "scale": "Dedicated manager"
+    },
+    {
+      "feature": "SLA guarantee",
+      "starter": "✗",
+      "builder": "✗",
+      "pro": "✗",
+      "scale": "✓"
+    },
+    {
+      "feature": "SSO & advanced security",
+      "starter": "✗",
+      "builder": "✗",
+      "pro": "✗",
+      "scale": "✓"
+    },
+    {
+      "feature": "Analytics dashboard",
+      "starter": "✗",
+      "builder": "Basic",
+      "pro": "Advanced",
+      "scale": "Custom"
+    }
+  ],
+  "examples-gallery": [
+    {
+      "title": "NovaDash Analytics",
+      "subtitle": "SaaS Landing Page",
+      "description": "A clean, conversion-focused landing page for a B2B analytics platform featuring a hero with animated dashboard mockup, pricing tiers, and testimonials.",
+      "category": "SaaS",
+      "image": "/images/novadash-analytics-saas-landing.jpg"
+    },
+    {
+      "title": "Lena Hartmann, Photographer",
+      "subtitle": "Portfolio",
+      "description": "A minimal full-bleed photography portfolio with a masonry gallery, about section, and contact form.",
+      "category": "Portfolio",
+      "image": "/images/lena-hartmann-photography-portfolio.jpg"
+    },
+    {
+      "title": "Bloom & Co. Skincare",
+      "subtitle": "E-commerce",
+      "description": "A warm, lifestyle-driven product storefront with featured collections, ingredient highlights, and a sticky cart.",
+      "category": "E-commerce",
+      "image": "/images/bloom-skincare-ecommerce-store.jpg"
+    },
+    {
+      "title": "Osteria Venti",
+      "subtitle": "Restaurant",
+      "description": "A rich, dark-themed restaurant site with a hero video background, seasonal menu, reservation widget, and location map.",
+      "category": "Restaurant",
+      "image": "/images/osteria-venti-restaurant-website.jpg"
+    },
+    {
+      "title": "Pixel Forge Creative",
+      "subtitle": "Agency",
+      "description": "A bold, motion-forward digital agency site with a scrolling marquee, case study grid, and team section.",
+      "category": "Agency",
+      "image": "/images/pixel-forge-digital-agency.jpg"
+    },
+    {
+      "title": "The Quiet Stack",
+      "subtitle": "Blog",
+      "description": "A developer blog with a clean reading layout, tag filtering, newsletter signup, and syntax-highlighted code snippets.",
+      "category": "Blog",
+      "image": "/images/quiet-stack-developer-blog.jpg"
+    },
+    {
+      "title": "Orbit HR Platform",
+      "subtitle": "SaaS",
+      "description": "A modern HR SaaS homepage with a feature comparison table, integration logos, and a free-trial CTA banner.",
+      "category": "SaaS",
+      "image": "/images/orbit-hr-platform-saas.jpg"
+    },
+    {
+      "title": "Neon Futures Conference 2025",
+      "subtitle": "Event",
+      "description": "A vibrant event landing page with a countdown timer, speaker lineup, schedule tabs, and ticket purchase CTA.",
+      "category": "Event",
+      "image": "/images/neon-futures-conference-event.jpg"
+    },
+    {
+      "title": "Roots & Routes Foundation",
+      "subtitle": "Non-profit",
+      "description": "A warm, story-driven charity site with an impact counter, donation form, volunteer signup, and photo gallery.",
+      "category": "Non-profit",
+      "image": "/images/roots-routes-nonprofit-charity.jpg"
+    },
+    {
+      "title": "Marcus Osei, Product Designer",
+      "subtitle": "Portfolio",
+      "description": "A bold personal brand site with a hero statement, selected work grid, skills section, and a downloadable résumé.",
+      "category": "Portfolio",
+      "image": "/images/marcus-osei-product-designer-portfolio.jpg"
+    },
+    {
+      "title": "CraftHive — Handmade Goods",
+      "subtitle": "Marketplace",
+      "description": "A colorful artisan marketplace homepage with category browsing, featured sellers, and a trust-badge bar.",
+      "category": "E-commerce",
+      "image": "/images/crafthive-handmade-marketplace.jpg"
+    },
+    {
+      "title": "Pocketsave Finance App",
+      "subtitle": "Mobile App",
+      "description": "A mobile-first app landing page with device mockups, feature highlights, App Store / Google Play CTAs, and user reviews.",
+      "category": "SaaS",
+      "image": "/images/pocketsave-finance-app-landing.jpg"
+    }
+  ],
+  "faq-accordion": [
+    {
+      "category": "Getting Started",
+      "question": "What is Builder by HotCode AI?",
+      "answer": "Builder by HotCode AI is an AI-powered website generator that turns a plain-text description of your project into a fully production-ready website in under 60 seconds. No coding knowledge is required — just describe what you want and the AI handles design, layout, and code."
+    },
+    {
+      "category": "Getting Started",
+      "question": "Do I need to know how to code to use Builder?",
+      "answer": "Not at all. Builder is designed for everyone — from non-technical founders and marketers to experienced developers who want to move faster. You describe your site in plain English, and the AI writes all the code for you."
+    },
+    {
+      "category": "Getting Started",
+      "question": "How do I create my first website?",
+      "answer": "Sign up for a free account, click 'Start Building', type a description of your website (e.g. 'A landing page for a yoga studio in Brooklyn with a booking form and testimonials'), and hit Generate. Your site will be ready in seconds."
+    },
+    {
+      "category": "Getting Started",
+      "question": "What kinds of websites can I build?",
+      "answer": "Builder works for landing pages, portfolios, SaaS marketing sites, restaurant pages, event pages, agency sites, personal blogs, and more. Browse the Examples page to see the full range of what's possible."
+    },
+    {
+      "category": "Credits & Billing",
+      "question": "What are credits?",
+      "answer": "Credits are the currency used to generate websites inside Builder. Each generation consumes a set number of credits depending on the complexity of your request. Free accounts start with 50 credits — enough to build and iterate several times."
+    },
+    {
+      "category": "Credits & Billing",
+      "question": "How much do credits cost?",
+      "answer": "We offer four credit packs: Free (50 credits), Starter ($10 for 100 credits), Growth ($23 for 250 credits), and Scale ($42 for 500 credits). Credits never expire, so you can use them at your own pace."
+    },
+    {
+      "category": "Credits & Billing",
+      "question": "Do unused credits roll over?",
+      "answer": "Yes. Credits do not expire and roll over indefinitely. Whether you buy a pack today or six months from now, your balance will always be waiting for you when you log back in."
+    },
+    {
+      "category": "Credits & Billing",
+      "question": "Can I get a refund on unused credits?",
+      "answer": "We offer refunds on unused credit packs within 14 days of purchase, provided fewer than 20% of the credits in that pack have been used. Please contact our support team via the Contact page to request a refund."
+    },
+    {
+      "category": "Plans & Pricing",
+      "question": "What is the difference between the Starter, Builder, Pro, and Scale plans?",
+      "answer": "Starter is free and gives you 50 credits to explore the platform. Builder ($9/mo) adds unlimited exports and custom domains. Pro ($29/mo) unlocks priority AI generation, white-label exports, and advanced analytics. Scale is a custom enterprise plan with dedicated support and SLA guarantees."
+    },
+    {
+      "category": "Plans & Pricing",
+      "question": "Is there a free plan?",
+      "answer": "Yes. The Starter plan is completely free — no credit card required. You get 50 generation credits, access to all templates, and the ability to export your site's code."
+    },
+    {
+      "category": "Plans & Pricing",
+      "question": "Can I upgrade or downgrade my plan at any time?",
+      "answer": "Absolutely. You can change your plan at any time from your account dashboard. Upgrades take effect immediately; downgrades apply at the start of your next billing cycle."
+    },
+    {
+      "category": "Plans & Pricing",
+      "question": "Do you offer discounts for startups or students?",
+      "answer": "Yes. We offer a 40% discount for verified students and early-stage startups (under $500K in funding). Apply via the Contact page with proof of eligibility."
+    },
+    {
+      "category": "Exporting & Deployment",
+      "question": "What does 'production ready' mean?",
+      "answer": "Every site generated by Builder is clean, semantic, and optimized — including responsive layouts, accessible HTML, optimized images, and a Lighthouse score above 90. You can deploy it directly without any cleanup."
+    },
+    {
+      "category": "Exporting & Deployment",
+      "question": "How do I export my website?",
+      "answer": "Click the 'Export' button in the editor. You'll receive a ZIP file containing your full site — HTML, CSS, JavaScript, and any assets. On Builder and higher plans you can also push directly to GitHub or deploy to Vercel with one click."
+    },
+    {
+      "category": "Exporting & Deployment",
+      "question": "Which hosting platforms are supported?",
+      "answer": "Builder-generated sites are static-first and work on any hosting platform: Vercel, Netlify, GitHub Pages, Cloudflare Pages, AWS S3, or any traditional web host. One-click deploy integrations are available on the Builder plan and above."
+    },
+    {
+      "category": "Exporting & Deployment",
+      "question": "Can I use a custom domain?",
+      "answer": "Yes. Custom domain support is included on the Builder plan ($9/mo) and above. You can connect any domain you own through your account dashboard in a few clicks."
+    },
+    {
+      "category": "AI & Generation",
+      "question": "How does the AI generate my website?",
+      "answer": "Builder uses a combination of large language models and a proprietary design system to interpret your description, choose an appropriate layout, generate clean code, and apply a cohesive visual style — all in a single pass."
+    },
+    {
+      "category": "AI & Generation",
+      "question": "Can I edit the generated site after it's created?",
+      "answer": "Yes. After generation you can tweak copy, swap colors, rearrange sections, and adjust layouts directly in the visual editor. You can also re-prompt the AI to regenerate specific sections without starting over."
+    },
+    {
+      "category": "AI & Generation",
+      "question": "What if I don't like the first result?",
+      "answer": "Just refine your prompt and regenerate. Each new generation uses one credit. You can also use the 'Variations' feature to generate three alternative designs from the same prompt and pick your favorite."
+    },
+    {
+      "category": "AI & Generation",
+      "question": "Does Builder support multiple languages?",
+      "answer": "Yes. You can describe your website in any major language and the AI will generate content in that language. The Builder interface itself is currently available in English, Spanish, French, German, Portuguese, and Japanese."
+    },
+    {
+      "category": "Privacy & Security",
+      "question": "Is my data safe?",
+      "answer": "Yes. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We do not sell your data to third parties, and your generated websites are private by default — only you can see them until you choose to publish or export."
+    },
+    {
+      "category": "Privacy & Security",
+      "question": "Who owns the websites I create?",
+      "answer": "You do. All content and code generated through your account belongs entirely to you. Builder retains no rights to your output."
+    },
+    {
+      "category": "Privacy & Security",
+      "question": "Is Builder GDPR compliant?",
+      "answer": "Yes. Builder is fully GDPR compliant. We act as a data processor on your behalf, maintain a Data Processing Agreement (DPA) available on request, and honor all data subject rights including the right to erasure."
+    },
+    {
+      "category": "Support",
+      "question": "How do I get help if I'm stuck?",
+      "answer": "You can reach our support team via the Contact page, or browse this FAQ for quick answers. Pro and Scale plan users also get access to live chat support with a guaranteed 4-hour response time."
+    },
+    {
+      "category": "Support",
+      "question": "Do you have video tutorials?",
+      "answer": "Yes. Check out the tutorial video on the Home page for a full walkthrough of the builder. We also maintain a growing library of short how-to videos in our Help Center."
+    },
+    {
+      "category": "Support",
+      "question": "Can I request a feature?",
+      "answer": "Absolutely — we love hearing from users. Submit feature requests through the Contact page or vote on existing requests in our public roadmap at hotcode.ai/roadmap."
+    }
+  ],
+  "contact-hero": [
+    {
+      "type": "badge",
+      "value": "Support for all plan tiers"
+    },
+    {
+      "type": "badge",
+      "value": "Average response time under 24 hours"
+    },
+    {
+      "type": "badge",
+      "value": "Real humans, not bots"
+    }
+  ],
+  "contact-form": [
+    {
+      "field": "fullName",
+      "label": "Full Name",
+      "placeholder": "Your full name"
+    },
+    {
+      "field": "email",
+      "label": "Email Address",
+      "placeholder": "you@example.com"
+    },
+    {
+      "field": "subject",
+      "label": "Subject",
+      "placeholder": "What's this about?"
+    },
+    {
+      "field": "message",
+      "label": "Message",
+      "placeholder": "Tell us what's on your mind — questions, feedback, partnership ideas, or anything else."
+    },
+    {
+      "field": "submit",
+      "label": "Send Message",
+      "placeholder": ""
+    }
+  ],
+  "contact-info": [
+    {
+      "type": "email",
+      "label": "Email Support",
+      "value": "hello@hotcode.ai",
+      "description": "For general questions, billing, and account help"
+    },
+    {
+      "type": "email",
+      "label": "Partnership Inquiries",
+      "value": "partners@hotcode.ai",
+      "description": "Interested in integrations, affiliates, or co-marketing?"
+    },
+    {
+      "type": "twitter",
+      "label": "Twitter / X",
+      "value": "@HotCodeAI",
+      "description": "Follow us for product updates, tips, and announcements"
+    },
+    {
+      "type": "discord",
+      "label": "Discord Community",
+      "value": "discord.gg/hotcodeai",
+      "description": "Join 3,000+ builders sharing projects and getting peer support"
+    },
+    {
+      "type": "hours",
+      "label": "Office Hours",
+      "value": "Monday – Friday, 9 AM – 6 PM UTC",
+      "description": "Our core team is online and responsive during these hours"
+    }
+  ],
+  "apiPage": {
+    "auth": {
+      "description": "Secure your API requests with industry-standard authentication methods. Support for API keys, OAuth 2.0, and JWT tokens.",
+      "note": "All API endpoints require valid authentication headers. Keep your credentials secure and rotate keys regularly.",
+      "title": "Authentication"
+    },
+    "cta": {
+      "badge": "Get Started",
+      "primary": "Create Free Account",
+      "secondary": "Schedule Demo",
+      "subtitle": "Start building with our API in minutes. No credit card required.",
+      "title": "Ready to Build?"
+    },
+    "endpoints": {
+      "description": "Comprehensive REST API endpoints for managing projects, deployments, and analytics. Full CRUD operations supported.",
+      "title": "API Endpoints",
+      "viewFull": "View Full Documentation"
+    },
+    "hero": {
+      "badge": "Developer API",
+      "cta": "Explore Documentation",
+      "docsLink": "Read the Docs",
+      "subtitle": "Build, deploy, and scale with our powerful REST API. Complete control over your projects programmatically.",
+      "title": "Powerful API for Modern Builders"
+    },
+    "quickstart": {
+      "description": "Get up and running in under 5 minutes with our simple quickstart guide.",
+      "requestLabel": "Request",
+      "responseLabel": "Response",
+      "title": "Quickstart"
+    },
+    "rateLimits": {
+      "colConcurrent": "Concurrent",
+      "colPlan": "Plan",
+      "colPriority": "Priority",
+      "colRequests": "Requests/min",
+      "description": "Rate limits are applied per API key. Upgrade your plan for higher limits and priority support.",
+      "note": "Contact sales for custom rate limit requirements or enterprise plans.",
+      "title": "Rate Limits"
+    }
+  },
+  "changelog": {
+    "badge": "What's New",
+    "cta": {
+      "badge": "Stay Updated",
+      "button": "Subscribe to Updates",
+      "heading": "Never Miss an Update",
+      "subheading": "Get notified about new features, improvements, and fixes."
+    },
+    "heading": "Changelog",
+    "subheading": "Latest updates and improvements to the Hotcode platform."
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "ctaBadge": "Questions?",
+    "ctaButton": "Send Message",
+    "ctaHeading": "Let's Talk",
+    "ctaSubheading": "Our team is here to help. Reach out anytime.",
+    "faqTeaser": {
+      "badge": "Help Center",
+      "cta": "Browse FAQs",
+      "subtitle": "Find answers to common questions about our platform.",
+      "title": "Have Questions?"
+    },
+    "fieldEmail": "Email",
+    "fieldMessage": "Message",
+    "fieldName": "Name",
+    "fieldSubject": "Subject",
+    "form": {
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "you@example.com",
+      "heading": "Contact Us",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us what you're building...",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your name",
+      "sendAnother": "Send another message",
+      "sending": "Sending...",
+      "subheading": "We'll get back to you within 24 hours",
+      "submit": "Send Message",
+      "successTitle": "Message sent!",
+      "topicLabel": "Topic"
+    },
+    "formSubtitle": "Have a question? We'd love to hear from you.",
+    "formTitle": "Get in Touch",
+    "heading": "Let's Build Together",
+    "hero": {
+      "subtitle": "Have questions about Hotcode? Reach out to our team.",
+      "title": "Contact Us"
+    },
+    "leftHeading": "Get in Touch",
+    "leftSubheading": "We're here to help you build faster.",
+    "placeholderEmail": "you@example.com",
+    "placeholderMessage": "Your message here...",
+    "placeholderName": "Your name",
+    "placeholderSubject": "What's this about?",
+    "sendAnother": "Send another",
+    "sending": "Sending...",
+    "sidebar": {
+      "communitySubtitle": "Join thousands of builders on Discord",
+      "communityTitle": "Join Our Community",
+      "contactInfo": "Contact Information",
+      "emailLabel": "Email",
+      "faqCta": "Browse FAQ",
+      "faqSubtitle": "Find answers to common questions",
+      "faqTitle": "Have Questions?",
+      "github": "GitHub",
+      "location": "San Francisco, CA",
+      "locationLabel": "Location",
+      "responseLabel": "Response Time",
+      "responseTime": "Within 24 hours",
+      "twitter": "Twitter"
+    },
+    "socialLabel": "Follow Us",
+    "subheading": "We're excited to hear from you. Drop us a line and we'll respond as soon as possible.",
+    "submitButton": "Send",
+    "successMessage": "Thanks for reaching out! We'll be in touch soon.",
+    "successTitle": "Message Received"
+  },
+  "cta": {
+    "badge": "Ready to build?",
+    "button": "Start Building",
+    "heading": "Start Building Today",
+    "subheading": "Join developers shipping faster with Hotcode."
+  },
+  "docs": {
+    "api": {
+      "note": "API documentation coming soon",
+      "subtitle": "Integrate Hotcode into your workflow",
+      "title": "API Reference"
+    },
+    "cta": {
+      "badge": "Need help?",
+      "button": "Contact Support",
+      "subtitle": "Ready to build? Start creating with our intuitive builder.",
+      "title": "Get Started Today"
+    },
+    "features": {
+      "f1": {
+        "desc": "Write code once, deploy everywhere with our universal framework.",
+        "title": "Write Once, Deploy Anywhere"
+      },
+      "f2": {
+        "desc": "Build faster with pre-built components and templates.",
+        "title": "Component Library"
+      },
+      "f3": {
+        "desc": "Real-time collaboration with your team on every project.",
+        "title": "Team Collaboration"
+      },
+      "f4": {
+        "desc": "Deploy in seconds with one-click deployment to any platform.",
+        "title": "Instant Deployment"
+      },
+      "title": "Powerful Features"
+    },
+    "hero": {
+      "badge": "Documentation",
+      "subtitle": "Learn how to build amazing projects with Hotcode.",
+      "title": "Build Smarter, Faster"
+    },
+    "popular": {
+      "title": "Popular Articles"
+    },
+    "quickstart": {
+      "step1": {
+        "desc": "Install the Hotcode CLI and create your first project.",
+        "title": "Installation"
+      },
+      "step2": {
+        "desc": "Explore the builder interface and familiarize yourself with the tools.",
+        "title": "Explore the Builder"
+      },
+      "step3": {
+        "desc": "Deploy your project live and start sharing with the world.",
+        "title": "Deploy Your Project"
+      },
+      "subtitle": "Get up and running in three simple steps.",
+      "title": "Quick Start Guide"
+    },
+    "search": {
+      "placeholder": "Search documentation..."
+    },
+    "sidebar": {
+      "sections": "Sections"
+    }
+  },
+  "examples": {
+    "badge": "Examples",
+    "card": {
+      "build_similar": "Build Similar",
+      "code": "View Code",
+      "preview": "Live Preview",
+      "viewButton": "View Example"
+    },
+    "cta": {
+      "badge": "Ready to Create?",
+      "button": "Start Building",
+      "subtitle": "Explore thousands of examples and start building today.",
+      "title": "Turn Ideas Into Reality"
+    },
+    "empty": {
+      "subtitle": "Try adjusting your search or browse all examples.",
+      "title": "Nothing Here Yet"
+    },
+    "goTo": "Go to Examples",
+    "heading": "Explore Examples",
+    "hero": {
+      "subtitle": "Get inspired by real-world projects built with Hotcode.",
+      "title": "Showcase Your Creativity"
+    },
+    "next": "Next",
+    "prev": "Previous",
+    "search": {
+      "placeholder": "Search examples..."
+    },
+    "subheading": "Browse our collection of inspiring projects"
+  },
+  "faq": {
+    "badge": "Questions?",
+    "contact": {
+      "button": "Contact Us",
+      "subtitle": "Can't find what you're looking for? Reach out to our team.",
+      "title": "Still Have Questions?"
+    },
+    "cta": {
+      "badge": "FAQ",
+      "button": "Get Started Free",
+      "subtitle": "Join thousands building with Hotcode today.",
+      "title": "Ready to build faster?"
+    },
+    "hero": {
+      "subtitle": "Find answers to common questions about Hotcode.",
+      "title": "Frequently Asked Questions"
+    },
+    "search": {
+      "clearFilters": "Clear filters",
+      "noResults": "No questions match your search.",
+      "placeholder": "Search FAQs...",
+      "resultsFound": "results found"
+    }
+  },
+  "faqTeaser": {
+    "badge": "Questions?",
+    "cta": "View all FAQs",
+    "heading": "Got questions?",
+    "subheading": "Check our FAQ for quick answers about Hotcode."
+  },
+  "finalCta": {
+    "badge": "Ready?",
+    "cta": "Start Building",
+    "heading": "Start building today",
+    "subheading": "No credit card required. Free forever plan available."
+  },
+  "howItWorks": {
+    "heading": "How it works",
+    "subheading": "Three simple steps to launch your next project."
+  },
+  "pricing": {
+    "badge": "Simple pricing",
+    "cta": {
+      "badge": "Ready to scale?",
+      "button": "Start Free",
+      "subtitle": "Choose the plan that fits your needs.",
+      "title": "Pick your plan"
+    },
+    "faq": {
+      "badge": "Have questions?",
+      "cta": "View pricing FAQ",
+      "subtitle": "Learn more about our plans and billing.",
+      "title": "Pricing questions?"
+    },
+    "footnote": "All plans include a 14-day free trial.",
+    "heading": "Transparent pricing",
+    "hero": {
+      "subtitle": "Scale as you grow. Pay only for what you use.",
+      "title": "Plans for every stage"
+    },
+    "subheading": "Choose the perfect plan for your project.",
+    "viewAll": "View all plans"
+  },
+  "pricingPage": {
+    "badge": {
+      "mostPopular": "Most popular"
+    },
+    "cta": {
+      "badge": "Ready?",
+      "button": "Get Started",
+      "subtitle": "Join thousands of developers building with Hotcode.",
+      "title": "Start building for free"
+    },
+    "faqTeaser": {
+      "badge": "Questions?",
+      "cta": "Explore FAQs",
+      "subtitle": "Find answers about plans, billing, and more.",
+      "title": "Questions? We've got answers"
+    },
+    "footnote": "All plans include a 14-day free trial. No credit card required.",
+    "hero": {
+      "subtitle": "Choose the plan that scales with your projects. Upgrade or downgrade anytime.",
+      "title": "Simple, transparent pricing"
+    }
+  },
+  "signin": {
+    "brand": "Hotcode",
+    "continueDemo": "Continue with Demo",
+    "continueGithub": "Continue with GitHub",
+    "continueGoogle": "Continue with Google",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "errorEmail": "Please enter a valid email address",
+    "errorPassword": "Password must be at least 8 characters",
+    "forgotPassword": "Forgot password?",
+    "heading": "Welcome back",
+    "hidePassword": "Hide password",
+    "noAccount": "Don't have an account?",
+    "orEmail": "Or continue with email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "showPassword": "Show password",
+    "signInButton": "Sign in",
+    "signUpLink": "Sign up",
+    "signingIn": "Signing in...",
+    "subheading": "Build faster with AI-powered code generation"
+  },
+  "tutorial": {
+    "heading": "Get started in minutes",
+    "subheading": "Watch how to create your first project and deploy it live.",
+    "videoAlt": "Tutorial: Getting started with Hotcode",
+    "videoFallback": "Your browser doesn't support video. Try a modern browser or view our docs."
+  }
+}
