@@ -4,21 +4,30 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
+import { ArrowRight, ExternalLink, Sparkles, Search } from 'lucide-react';
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
 import { staggerContainer, fadeInUp, scaleIn } from "@/lib/motion";
 
-const EXAMPLES = [
+const CATEGORIES = ["All", "Portfolio", "Landing Page", "E-commerce", "Business", "Blog", "Dashboard"];
+
+interface Example {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  gradient: string;
+  tags: string[];
+}
+
+const EXAMPLES: Example[] = [
   {
     id: "1",
     title: "Alex Chen Portfolio",
     category: "Portfolio",
     description: "A sleek developer portfolio with dark theme and animated sections.",
-    gradient: "from-slate-800 via-blue-900 to-slate-900",
-    accentColor: "bg-blue-500",
+    gradient: "from-slate-700 via-blue-900 to-slate-900",
     tags: ["Next.js", "TypeScript"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/1a393a4f64bb4233846b7f752357959b.jpg",
   },
   {
     id: "2",
@@ -26,19 +35,15 @@ const EXAMPLES = [
     category: "Landing Page",
     description: "Bold automotive landing page with full-bleed imagery and minimal UI.",
     gradient: "from-gray-900 via-gray-800 to-black",
-    accentColor: "bg-red-500",
     tags: ["React", "Tailwind"],
-    image: "https://s3-alpha.figma.com/hub/file/2219958310232930685/cacc76a6-e76b-4946-9b14-d5425e559779-cover.png",
   },
   {
     id: "3",
     title: "Bloom Boutique",
     category: "E-commerce",
     description: "Elegant fashion e-commerce store with product grid and cart flow.",
-    gradient: "from-rose-100 via-pink-50 to-rose-200",
-    accentColor: "bg-rose-400",
+    gradient: "from-rose-300 via-pink-200 to-rose-400",
     tags: ["Next.js", "Stripe"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/3e95524a87f142a9b5662740a98fb3fe.png",
   },
   {
     id: "4",
@@ -46,9 +51,7 @@ const EXAMPLES = [
     category: "Business",
     description: "Professional SaaS landing page with pricing, features, and testimonials.",
     gradient: "from-violet-900 via-purple-800 to-indigo-900",
-    accentColor: "bg-violet-500",
     tags: ["React", "Framer Motion"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/0a7486ed4adb48109c3fc432b5a03f97.png",
   },
   {
     id: "5",
@@ -56,268 +59,327 @@ const EXAMPLES = [
     category: "Business",
     description: "Organic food brand website with warm tones and product showcase.",
     gradient: "from-green-800 via-emerald-700 to-teal-800",
-    accentColor: "bg-emerald-400",
     tags: ["Next.js", "TypeScript"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/580fdabd19c4463a83691a884d96b345.webp",
   },
   {
     id: "6",
     title: "Maria Santos Creative",
     category: "Portfolio",
     description: "Minimalist designer portfolio with case studies and contact form.",
-    gradient: "from-amber-50 via-orange-50 to-yellow-100",
-    accentColor: "bg-orange-400",
+    gradient: "from-amber-200 via-orange-100 to-yellow-200",
     tags: ["React", "CSS Modules"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/ab817f00c9c943c895de5d49280e6dcc.png",
   },
   {
     id: "7",
     title: "TechLaunch Pro",
     category: "Landing Page",
     description: "High-converting product launch page with countdown and waitlist.",
-    gradient: "from-cyan-900 via-sky-800 to-blue-900",
-    accentColor: "bg-cyan-400",
+    gradient: "from-indigo-900 via-sky-800 to-blue-900",
     tags: ["Next.js", "Tailwind"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/d8fa9d4b53ee42e69e4acd4412268426.jpg",
   },
   {
     id: "8",
-    title: "Urban Threads Store",
+    title: "Artisan Coffee Co.",
     category: "E-commerce",
-    description: "Streetwear e-commerce with bold typography and lookbook gallery.",
-    gradient: "from-zinc-900 via-neutral-800 to-stone-900",
-    accentColor: "bg-yellow-400",
+    description: "Warm coffee brand store with product cards and subscription flow.",
+    gradient: "from-amber-900 via-yellow-800 to-orange-900",
     tags: ["Next.js", "Stripe"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/d7421d85b9b2434db4158b35df9fe4e4.png",
   },
   {
     id: "9",
-    title: "Luminary Agency",
+    title: "MindfulSpace Blog",
+    category: "Blog",
+    description: "Clean wellness blog with article grid, tags, and newsletter signup.",
+    gradient: "from-teal-700 via-cyan-600 to-teal-800",
+    tags: ["Next.js", "MDX"],
+  },
+  {
+    id: "10",
+    title: "DataViz Dashboard",
+    category: "Dashboard",
+    description: "Analytics dashboard with charts, KPI cards, and data tables.",
+    gradient: "from-slate-800 via-indigo-900 to-slate-900",
+    tags: ["React", "Recharts"],
+  },
+  {
+    id: "11",
+    title: "FitLife Coaching",
+    category: "Landing Page",
+    description: "Fitness coaching landing page with program tiers and testimonials.",
+    gradient: "from-green-600 via-lime-500 to-emerald-600",
+    tags: ["Next.js", "Tailwind"],
+  },
+  {
+    id: "12",
+    title: "Nova Restaurant",
     category: "Business",
-    description: "Creative agency website with animated hero and portfolio grid.",
-    gradient: "from-fuchsia-900 via-purple-900 to-violet-900",
-    accentColor: "bg-fuchsia-400",
+    description: "Upscale restaurant site with menu, reservations, and gallery.",
+    gradient: "from-red-700 via-orange-600 to-red-800",
     tags: ["React", "Framer Motion"],
-    image: "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/765fa067a33248b1aefe0c2d30c862e0.png",
   },
 ];
 
-const ALL_CATEGORIES = ["All", ...Array.from(new Set(EXAMPLES.map((e) => e.category)))] as const;
-
 const CATEGORY_COLORS: Record<string, string> = {
   Portfolio: "bg-blue-100 text-blue-700",
-  "Landing Page": "bg-violet-100 text-violet-700",
+  "Landing Page": "bg-indigo-100 text-indigo-700",
   "E-commerce": "bg-rose-100 text-rose-700",
-  Business: "bg-emerald-100 text-emerald-700",
+  Business: "bg-violet-100 text-violet-700",
+  Blog: "bg-teal-100 text-teal-700",
+  Dashboard: "bg-slate-100 text-slate-700",
 };
 
 export default function ExamplesPage() {
   const t = useTranslations();
-  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(12);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  const filtered = useMemo(
-    () =>
-      activeCategory === "All"
-        ? EXAMPLES
-        : EXAMPLES.filter((e) => e.category === activeCategory),
-    [activeCategory]
-  );
+  const filtered = useMemo(() => {
+    let result = EXAMPLES;
+    if (activeCategory !== "All") {
+      result = result.filter(
+        (ex) => ex.category.toLowerCase() === activeCategory.toLowerCase()
+      );
+    }
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      result = result.filter(
+        (ex) =>
+          ex.title.toLowerCase().includes(q) ||
+          ex.description.toLowerCase().includes(q)
+      );
+    }
+    return result;
+  }, [activeCategory, searchQuery]);
+
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = filtered.length > visibleCount;
 
   return (
-    <main className="min-h-screen bg-[var(--bg-base)]">
-      {/* Hero Section */}
-      <Reveal>
-        <section className="relative overflow-hidden pt-24 pb-16 text-center">
-          <div
-            className="pointer-events-none absolute inset-0 -z-10"
-            style={{
-              background:
-                "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,92,246,0.12) 0%, transparent 70%)",
-            }}
-          />
-          <div className="mx-auto max-w-3xl px-4">
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-sm font-medium text-violet-700"
-            >
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              {t("examples.badge")}
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: "easeOut", delay: 0.08 }}
-              className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
-            >
-              {t("examples.hero.title")}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: "easeOut", delay: 0.16 }}
-              className="mx-auto max-w-xl text-lg leading-relaxed text-gray-500"
-            >
-              {t("examples.hero.subtitle")}
-            </motion.p>
+    <main className="min-h-screen bg-[#F5F3FF]">
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-b from-[#F5F3FF] to-[#EDE9FE] pt-28 pb-14 px-4 text-center">
+        <Reveal>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#DDD6FE] bg-white text-[#7C3AED] text-sm font-medium mb-6 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+            <span>AI-Generated Examples</span>
           </div>
-        </section>
-      </Reveal>
-
-      {/* Filter Tab Bar */}
-      <Reveal delay={0.05}>
-        <section className="pb-8">
-          <div className="mx-auto max-w-6xl px-4">
-            <div className="flex flex-wrap justify-center gap-2">
-              {ALL_CATEGORIES.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={cn(
-                    "rounded-full border px-5 py-2 text-sm font-medium transition-all duration-200",
-                    activeCategory === cat
-                      ? "border-violet-600 bg-violet-600 text-white shadow-sm"
-                      : "border-gray-200 bg-white text-gray-600 hover:border-violet-300 hover:text-violet-700"
-                  )}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight text-balance mb-4">
+            See what&apos;s possible
+          </h1>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed text-pretty mb-8">
+            Browse websites built with Builder by HotCode AI across every industry and style.
+          </p>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <div className="relative max-w-md mx-auto">
+            <Search
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+              aria-hidden="true"
+            />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setVisibleCount(12);
+              }}
+              placeholder="Search examples..."
+              className="w-full pl-11 pr-4 py-3 bg-white border border-[#EDE9FE] rounded-xl text-sm text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 focus:border-[#7C3AED] transition-all duration-200"
+            />
           </div>
-        </section>
-      </Reveal>
+        </Reveal>
+      </section>
 
-      {/* Examples Grid */}
-      <section className="pb-24">
-        <div className="mx-auto max-w-6xl px-4">
+      {/* ── Filter Tabs ──────────────────────────────────────── */}
+      <section className="sticky top-16 z-30 bg-[#F5F3FF]/95 backdrop-blur-sm border-b border-[#EDE9FE] px-4 py-3">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto scrollbar-hide pb-0.5">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => {
+                setActiveCategory(cat);
+                setVisibleCount(12);
+              }}
+              className={cn(
+                "flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border",
+                activeCategory === cat
+                  ? "bg-[#7C3AED] text-white border-[#7C3AED] shadow-sm"
+                  : "bg-white border-[#EDE9FE] text-gray-600 hover:border-[#7C3AED] hover:text-[#7C3AED]"
+              )}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Examples Grid ────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Result count */}
+        <Reveal>
+          <p className="text-sm text-gray-500 mb-6">
+            Showing{" "}
+            <span className="font-semibold text-gray-700">{filtered.length}</span>{" "}
+            {filtered.length === 1 ? "example" : "examples"}
+            {activeCategory !== "All" && (
+              <span>
+                {" "}in{" "}
+                <span className="font-semibold text-[#7C3AED]">{activeCategory}</span>
+              </span>
+            )}
+            {searchQuery.trim() && (
+              <span>
+                {" "}for{" "}
+                <span className="font-semibold text-[#7C3AED]">&ldquo;{searchQuery}&rdquo;</span>
+              </span>
+            )}
+          </p>
+        </Reveal>
+
+        {filtered.length === 0 ? (
+          <div className="text-center py-24">
+            <p className="text-gray-400 text-lg">No examples found. Try a different search or category.</p>
+          </div>
+        ) : (
           <motion.div
-            key={activeCategory}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {filtered.map((example, i) => (
-              <motion.div
+            {visible.map((example) => (
+              <motion.article
                 key={example.id}
                 variants={scaleIn}
-                custom={i}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_-8px_rgba(0,0,0,0.1)] transition-shadow duration-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08),0_16px_40px_-12px_rgba(0,0,0,0.16)]"
+                className="group bg-white rounded-2xl border border-[#EDE9FE] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_16px_-4px_rgba(124,58,237,0.08)] overflow-hidden hover:shadow-[0_4px_24px_-4px_rgba(124,58,237,0.18)] transition-all duration-300 cursor-pointer"
+                onMouseEnter={() => setHoveredId(example.id)}
+                onMouseLeave={() => setHoveredId(null)}
               >
-                {/* Screenshot Placeholder */}
-                <div
-                  className={cn(
-                    "relative h-48 w-full bg-gradient-to-br",
-                    example.gradient
-                  )}
-                >
-                  <img
-                    src={example.image}
-                    alt={example.title}
-                    className="absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-overlay"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                  {/* Decorative dots */}
-                  <div className="absolute inset-0 opacity-20"
-                    style={{
-                      backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
-                      backgroundSize: "24px 24px",
-                    }}
-                  />
-                  {/* Mock browser bar */}
-                  <div className="absolute left-3 right-3 top-3 flex items-center gap-1.5 rounded-md bg-white/10 px-3 py-1.5 backdrop-blur-sm">
-                    <span className="h-2 w-2 rounded-full bg-red-400/80" />
-                    <span className="h-2 w-2 rounded-full bg-yellow-400/80" />
-                    <span className="h-2 w-2 rounded-full bg-green-400/80" />
-                    <div className="ml-2 h-1.5 flex-1 rounded-full bg-white/20" />
-                  </div>
-                  {/* Category badge overlay */}
-                  <div className="absolute bottom-3 left-3">
-                    <span
-                      className={cn(
-                        "rounded-full px-2.5 py-1 text-xs font-semibold",
-                        CATEGORY_COLORS[example.category] ?? "bg-gray-100 text-gray-700"
-                      )}
-                    >
-                      {example.category}
+                {/* Image / Gradient placeholder */}
+                <div className={cn("relative h-48 bg-gradient-to-br", example.gradient)}>
+                  {/* Category badge */}
+                  <span
+                    className={cn(
+                      "absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-semibold",
+                      CATEGORY_COLORS[example.category] ?? "bg-gray-100 text-gray-700"
+                    )}
+                  >
+                    {example.category}
+                  </span>
+
+                  {/* Hover overlay */}
+                  <div
+                    className={cn(
+                      "absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity duration-300",
+                      hoveredId === example.id ? "opacity-100" : "opacity-0"
+                    )}
+                  >
+                    <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-[#7C3AED] text-sm font-semibold rounded-xl shadow-lg">
+                      <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                      View Example
                     </span>
                   </div>
                 </div>
 
-                {/* Card Body */}
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="mb-1.5 text-base font-bold text-gray-900">
+                {/* Card body */}
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 text-base mb-1 group-hover:text-[#7C3AED] transition-colors duration-200">
                     {example.title}
                   </h3>
-                  <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-500">
+                  <p className="text-sm text-gray-500 leading-relaxed mb-3">
                     {example.description}
                   </p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-wrap gap-1.5">
-                      {example.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <Link
-                      href="/pricing"
-                      className="inline-flex items-center gap-1 rounded-lg border border-violet-200 bg-violet-50 px-3 py-1.5 text-xs font-semibold text-violet-700 transition-colors duration-200 hover:bg-violet-100"
-                    >
-                      {t("examples.card.viewButton")}
-                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                    </Link>
+                  <div className="flex flex-wrap gap-1.5">
+                    {example.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full border border-gray-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
+        )}
 
-          {filtered.length === 0 && (
-            <div className="py-20 text-center text-gray-400">
-              <p className="text-lg">{t("examples.empty")}</p>
-            </div>
-          )}
-        </div>
+        {/* Load more */}
+        {hasMore && (
+          <div className="mt-12 text-center">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#7C3AED] text-[#7C3AED] text-sm font-semibold bg-white hover:bg-[#F5F3FF] transition-all duration-200 shadow-sm"
+            >
+              Load more examples
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </button>
+          </div>
+        )}
       </section>
 
-      {/* CTA Banner */}
-      <Reveal>
-        <section className="px-4 pb-24">
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 px-8 py-16 text-center shadow-[0_8px_40px_-8px_rgba(124,58,237,0.5)]"
-            style={{
-              backgroundImage:
-                "radial-gradient(ellipse 80% 80% at 50% 120%, rgba(255,255,255,0.08) 0%, transparent 60%), linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #4338ca 100%)",
-            }}
-          >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              {t("examples.cta.badge")}
+      {/* ── CTA Banner ───────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-[#7C3AED] py-20 px-4 mt-8">
+        {/* Sparkle background dots */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          {Array.from({ length: 30 }, (_, i) => ({
+            id: i,
+            x: (i * 137.508) % 100,
+            y: (i * 97.3) % 100,
+            size: i % 3 === 0 ? 3 : 2,
+            opacity: 0.12 + (i % 4) * 0.06,
+          })).map((star) => (
+            <div
+              key={star.id}
+              className="absolute rounded-full bg-white"
+              style={{
+                left: `${star.x}%`,
+                top: `${star.y}%`,
+                width: star.size,
+                height: star.size,
+                opacity: star.opacity,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="relative max-w-3xl mx-auto text-center">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 text-white text-sm font-medium mb-6">
+              <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Start for free</span>
             </div>
-            <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
-              {t("examples.cta.title")}
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight text-balance mb-4">
+              Ready to build your own?
             </h2>
-            <p className="mx-auto mb-8 max-w-md text-base leading-relaxed text-white/75">
-              {t("examples.cta.subtitle")}
+          </Reveal>
+          <Reveal delay={0.14}>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+              Join thousands of creators who ship faster with Builder. No credit card required.
             </p>
+          </Reveal>
+          <Reveal delay={0.2}>
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-base font-bold text-violet-700 shadow-lg transition-all duration-200 hover:bg-violet-50 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[#7C3AED] text-sm font-bold rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.18)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.22)] hover:-translate-y-0.5 transition-all duration-200"
             >
-              {t("examples.cta.button")}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Start Building Free
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
-          </div>
-        </section>
-      </Reveal>
+          </Reveal>
+        </div>
+      </section>
     </main>
   );
 }
